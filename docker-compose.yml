@@ -1,0 +1,54 @@
+###############################################################################
+#                          Generated on phpdocker.io                          #
+###############################################################################
+version: "3.1"
+services:
+
+    mailhog:
+      image: mailhog/mailhog:latest
+      container_name: whatshallicook-mailhog
+      ports:
+        - "2526:8025"
+
+    mariadb:
+      image: mariadb:10.4
+      container_name: whatshallicook-mariadb
+      working_dir: /application
+      volumes:
+        - .:/application
+      environment:
+        - MYSQL_ROOT_PASSWORD=secret
+        - MYSQL_DATABASE=whatshallicook
+        - MYSQL_USER=root
+        - MYSQL_PASSWORD=secret
+      ports:
+        - "2528:3306"
+
+    webserver:
+      image: nginx:alpine
+      container_name: whatshallicook-webserver
+      working_dir: /application
+      volumes:
+          - .:/application
+          - ./phpdocker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+      ports:
+       - "2525:80"
+
+    php-fpm:
+      build: phpdocker/php-fpm
+      container_name: whatshallicook-php-fpm
+      working_dir: /application
+      volumes:
+        - .:/application
+        - ./phpdocker/php-fpm/php-ini-overrides.ini:/etc/php/7.3/fpm/conf.d/99-overrides.ini
+
+    phpmyadmin:
+      image: phpmyadmin/phpmyadmin:latest
+      container_name: whatshallicook-phpmyadmin
+      environment:
+          - PMA_ARBITRARY=1
+      restart: always
+      ports:
+          - 8080:80
+      volumes:
+          - /sessions

@@ -1,0 +1,182 @@
+    // Variables
+    @import 'variables';
+    // Bootstrap
+    @import '~bootstrap/scss/bootstrap';
+    body {
+        color: $purple;
+        letter-spacing: -1px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .purple {
+        color: $purple;
+    }
+    
+    .navbar {
+        background-color: $secondary;
+    }
+    
+    .nav-item {
+        border: 1px solid #5e3782;
+        border-radius: 2rem;
+         :hover {
+            border: none;
+            border-radius: 2rem;
+            color: $purple;
+            background-color: $orange-light;
+        }
+    }
+    
+    .dropdown-menu {
+        color: $purple;
+        background-color: $green;
+        border: 1px solid $purple;
+        border-radius: 0;
+    }
+    
+    .dropdown-item {
+        color: $purple;
+        background-color: $green;
+        border: none;
+    }
+    
+    .dropdown-item:hover,
+    .dropdown-item:active {
+        color: $purple;
+        background-color: $orange-light;
+        border: none;
+    }
+    
+    .alert {
+        position: relative;
+        padding: 0.4rem 1.25rem;
+        margin-bottom: 1rem;
+        border: 1px solid $purple;
+        border-radius: 0.25rem;
+    }
+    
+    .alert-success {
+        color: $purple;
+        background-color: $green;
+    }
+    
+    .alert-info {
+        color: $purple;
+        background-color: $orange-light;
+    }
+    
+    .btn {
+        border: 1px solid $purple;
+        border-radius: 2rem;
+        background-color: $secondary;
+        color: $purple;
+        min-width: 5rem;
+    }
+    
+    .btn-link {
+        font-size: 0.9rem;
+    }
+    
+    .recipe {
+        margin: 3rem 6em;
+        padding: 2rem;
+        border-radius: 3rem;
+        background-color: #c0fdc1;
+    }
+    
+    .recipe-name {
+        font-size: 1.5rem;
+        margin-right: 7rem;
+    }
+    
+    .recipe-example {
+        margin: 1rem 0 0 7rem;
+    }
+    
+    .table {
+        margin: 3rem 0;
+    }
+    
+    .table-dark th,
+    .table-dark td,
+    .table-dark thead th {
+        border-color: $purple;
+        color: $purple;
+        padding: 0.5rem;
+    }
+    
+    .table-dark.table-striped tr {
+        background-color: $green;
+    }
+    
+    .table-dark.table-striped tbody tr:nth-of-type(odd) {
+        background-color: $orange;
+    }
+    
+    .pagination {
+        justify-content: center;
+    }
+    
+    .page-link {
+        color: $purple;
+        background-color: $green;
+        border: 1px solid $purple;
+    }
+    
+    .page-item.disabled .page-link,
+    .page-link:hover {
+        color: $purple;
+        background-color: $orange;
+        border: 1px solid $purple;
+    }
+    
+    .card {
+        margin: 1rem 0;
+        .card-header {
+            padding: 0.75rem 1.25rem;
+            margin-bottom: 0;
+            background-color: $green;
+            border: 1px solid $purple;
+        }
+        .card-body {
+            flex: 1 1 auto;
+            min-height: 1px;
+            padding: 1.25rem;
+            background-color: $orange-light;
+            border: 1px solid $purple;
+        }
+    }
+    
+    @media (min-width: 981px) {
+        .container {
+            max-width: 800px;
+        }
+    }
+    
+    @media (max-width:980px) {
+        .recipe {
+            margin: 3rem 0;
+        }
+        .recipe-name,
+        .recipe-example {
+            margin: 1rem 0;
+        }
+        .nav-item {
+            border: none;
+             :hover {
+                border: none;
+                border-radius: 0;
+                color: $purple;
+                background-color: $orange-light;
+            }
+        }
+        .dropdown-menu {
+            color: $purple;
+            background-color: $green;
+            border: none;
+            border-radius: 0;
+        }
+    }
